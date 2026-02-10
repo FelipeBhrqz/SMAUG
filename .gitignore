@@ -1,0 +1,11 @@
+CONTEXT.md
+.env
+.env.local
+venv/
+.venv/
+env/
+*.log
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
