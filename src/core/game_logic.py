@@ -10,10 +10,6 @@ class SmaugGuardian:
                 api_key="ollama" 
             )
             self.model = "llama3.1" 
-        else:
-            # Backup para la nube (si lo necesitaras después)
-            self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-            self.model = "gpt-4o-mini"
 
     def get_response(self, user_input, system_prompt):
         try:

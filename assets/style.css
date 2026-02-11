@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Press+Start+2P&display=swap");
 
 :root {
 	--bg-dark: #111111;
@@ -29,8 +29,24 @@ h1, h2, h3, h4 {
 	letter-spacing: 1px;
 }
 
+.level-description,
+.input-label {
+	font-family: "Nunito", sans-serif;
+	font-size: 18px;
+	color: var(--text-primary);
+	line-height: 1.35;
+}
+
+.input-label {
+	margin-bottom: 6px;
+}
+
 .stSubheader {
 	color: var(--text-dim) !important;
+}
+
+.objective-label {
+	color: #d6c56f;
 }
 
 /* ═══════════════════════════════════════
@@ -63,6 +79,11 @@ div[data-testid="stChatMessage"] {
 	font-family: "Courier New", monospace;
 }
 
+div[data-testid="stChatInput"] textarea {
+	padding-left: 18px;
+	background-image: linear-gradient(90deg, #000 0 12px, var(--bg-panel) 12px 100%);
+}
+
 .stTextInput > div > div > input:focus,
 .stTextArea textarea:focus,
 .stChatInput textarea:focus {
@@ -83,9 +104,11 @@ div[data-testid="stChatMessage"] {
 		4px 4px 0 0 #000,
 		inset -1px -1px 0 0 #222,
 		inset 1px 1px 0 0 #666;
-	font-family: "Press Start 2P", monospace;
-	font-size: 11px;
+	font-family: "Courier New", monospace;
+	font-size: 100px;
 	padding: 10px 16px;
+	min-width: 150px;
+	white-space: nowrap;
 	text-transform: uppercase;
 	cursor: pointer;
 	transition: none;
@@ -126,6 +149,63 @@ div[data-testid="stChatMessage"] {
 }
 
 /* ═══════════════════════════════════════
+   HINT MODAL
+   ═══════════════════════════════════════ */
+
+.hint-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.45);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+}
+
+.hint-modal {
+	background: #f1d66a;
+	border: 3px solid #6b4d1a;
+	box-shadow: 6px 6px 0 0 #000;
+	padding: 18px 22px;
+	max-width: 520px;
+	width: 85vw;
+	color: #2b1b00;
+}
+
+.hint-modal-title {
+	font-family: "Press Start 2P", monospace;
+	font-size: 12px;
+	margin-bottom: 10px;
+	color: #4a2f0c;
+}
+
+.hint-modal-body {
+	font-family: "Courier New", monospace;
+	font-size: 14px;
+}
+
+.hint-modal-close {
+	display: inline-block;
+	margin-top: 14px;
+	padding: 8px 12px;
+	background: #6b4d1a;
+	color: #f7e39a;
+	text-decoration: none;
+	border: 2px solid #2b1b00;
+	box-shadow: 3px 3px 0 0 #000;
+	font-family: "Press Start 2P", monospace;
+	font-size: 10px;
+}
+
+.hint-modal-close:hover {
+	background: #8a6422;
+	color: #ffffff;
+}
+
+/* ═══════════════════════════════════════
    ALERTS
    ═══════════════════════════════════════ */
 
@@ -143,12 +223,13 @@ div[data-testid="stAlert"] {
 
 div[data-testid="stProgress"] > div > div {
 	background-color: var(--text-primary);
-	border-radius: 0;
+	border-radius: 10px;
 }
 
 div[data-testid="stProgress"] > div {
-	border-radius: 0;
-	background-color: var(--bg-panel);
+	border-radius: 10px;
+	background-color: transparent;
+	border: none;
 }
 
 /* ═══════════════════════════════════════
