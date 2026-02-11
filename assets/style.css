@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+	--bg-dark: #111111;
+	--bg-panel: #1a1a1a;
+	--border-color: #444444;
+	--text-primary: #c8c8c8;
+	--text-dim: #888888;
+	--accent: #aaaaaa;
+	--highlight: #ffffff;
+	--error-red: #cc4444;
+	--success-green: #55aa55;
+}
+
+/* ═══════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════ */
+
+.stApp {
+	background-color: var(--bg-dark);
+	color: var(--text-primary);
+	font-family: "Courier New", monospace;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Press Start 2P", monospace !important;
+	color: var(--text-primary) !important;
+	text-shadow: 2px 2px 0 #000;
+	letter-spacing: 1px;
+}
+
+.stSubheader {
+	color: var(--text-dim) !important;
+}
+
+/* ═══════════════════════════════════════
+   PIXEL BORDER MIXIN (via box-shadow)
+   Simula borde pixelado de 2px sin radius
+   ═══════════════════════════════════════ */
+
+div[data-testid="stChatMessage"] {
+	background: var(--bg-panel);
+	border: 2px solid var(--border-color);
+	border-radius: 0;
+	padding: 10px 14px;
+	box-shadow:
+		4px 4px 0 0 #000,
+		-1px -1px 0 0 #333 inset;
+}
+
+/* ═══════════════════════════════════════
+   INPUTS (pergamino → gris limpio)
+   ═══════════════════════════════════════ */
+
+.stTextInput > div > div > input,
+.stTextArea textarea,
+.stChatInput textarea {
+	background: var(--bg-panel) !important;
+	color: var(--text-primary) !important;
+	border: 2px solid var(--border-color) !important;
+	border-radius: 0 !important;
+	box-shadow: 3px 3px 0 0 #000;
+	font-family: "Courier New", monospace;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea textarea:focus,
+.stChatInput textarea:focus {
+	border-color: var(--accent) !important;
+	outline: none;
+}
+
+/* ═══════════════════════════════════════
+   BOTONES (pixel block)
+   ═══════════════════════════════════════ */
+
+.stButton > button {
+	background: var(--border-color);
+	color: var(--highlight);
+	border: 2px solid var(--text-dim);
+	border-radius: 0;
+	box-shadow:
+		4px 4px 0 0 #000,
+		inset -1px -1px 0 0 #222,
+		inset 1px 1px 0 0 #666;
+	font-family: "Press Start 2P", monospace;
+	font-size: 11px;
+	padding: 10px 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: none;
+}
+
+.stButton > button:hover {
+	background: var(--text-dim);
+	color: var(--bg-dark);
+}
+
+.stButton > button:active {
+	transform: translate(2px, 2px);
+	box-shadow:
+		2px 2px 0 0 #000,
+		inset -1px -1px 0 0 #222,
+		inset 1px 1px 0 0 #555;
+}
+
+/* ═══════════════════════════════════════
+   HINT BOX
+   ═══════════════════════════════════════ */
+
+.hint-box {
+	background: var(--bg-panel);
+	border: 2px dashed var(--text-dim);
+	border-radius: 0;
+	padding: 14px 18px;
+	margin-top: 12px;
+	box-shadow: 4px 4px 0 0 #000;
+	color: var(--text-primary);
+}
+
+.hint-title {
+	font-family: "Press Start 2P", monospace;
+	font-size: 11px;
+	margin-bottom: 8px;
+	color: var(--accent);
+}
+
+/* ═══════════════════════════════════════
+   ALERTS
+   ═══════════════════════════════════════ */
+
+div[data-testid="stAlert"] {
+	border: 2px solid var(--border-color);
+	border-radius: 0;
+	background: var(--bg-panel);
+	color: var(--text-primary);
+	box-shadow: 3px 3px 0 0 #000;
+}
+
+/* ═══════════════════════════════════════
+   PROGRESS BAR
+   ═══════════════════════════════════════ */
+
+div[data-testid="stProgress"] > div > div {
+	background-color: var(--text-primary);
+	border-radius: 0;
+}
+
+div[data-testid="stProgress"] > div {
+	border-radius: 0;
+	background-color: var(--bg-panel);
+}
+
+/* ═══════════════════════════════════════
+   CAPTION & DIVIDER
+   ═══════════════════════════════════════ */
+
+.stCaption {
+	color: var(--text-dim);
+}
+
+hr {
+	border-color: var(--border-color);
+}

@@ -1,20 +1,15 @@
-# src/core/game_logic.py
 import os
 from openai import OpenAI
 
 class SmaugGuardian:
     def __init__(self, use_local=True):
-        """
-        Inicializa el cliente. 
-        Si use_local=True, conecta con Ollama (localhost:11434).
-        """
         if use_local:
-            print("🐲 Conectando con OLLAMA (Local)...")
+            print("Conectando con OLLAMA (Local)...")
             self.client = OpenAI(
                 base_url="http://localhost:11434/v1",
                 api_key="ollama" 
             )
-            self.model = "llama3.1" # Asegúrate de haber hecho 'ollama pull llama3.1'
+            self.model = "llama3.1" 
         else:
             # Backup para la nube (si lo necesitaras después)
             self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
